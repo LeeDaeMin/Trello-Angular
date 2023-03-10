@@ -19,6 +19,36 @@ export class BoardsComponent implements OnInit{
   faUsers = faUsers;
   faGear = faGear;
 
+  items = [
+    {
+      label: 'item 1',
+      items: [
+        {
+          label: 'Sub item 1',
+        },
+        {
+          label: 'Sub item 2',
+        }
+      ]
+    },
+    {
+      label: 'item 2',
+      items: [
+        {
+          label: 'Sub item 2.1',
+        }
+      ]
+    },
+    {
+      label: 'item 3',
+      items: [
+        {
+          label: 'Sub item 3.1',
+        }
+      ]
+    }
+  ]
+
   constructor() { }
 
   ngOnInit(): void {
