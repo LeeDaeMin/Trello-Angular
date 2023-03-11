@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { toDo } from '../../models/todo.model'
 
 @Component({
@@ -28,9 +28,19 @@ export class BoardComponent implements OnInit {
       id: 2,
       title: 'Task 2'
     },
+
+  ];
+
+  doing: toDo[] = [
     {
       id: 3,
       title: 'Task 3'
+    },
+  ];
+  done: toDo[] = [
+    {
+      id: 4,
+      title: 'Task 4'
     },
   ];
 
@@ -39,8 +49,17 @@ export class BoardComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  drop($event: CdkDragDrop<any[]>) {
-    moveItemInArray(this.todo, $event.previousIndex, $event.currentIndex);
+  drop(event: CdkDragDrop<toDo[]>) {
+    if(event.previousContainer === event.container){
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else{
+      transferArrayItem(
+        event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex
+      );
+    }
   }
 
 
