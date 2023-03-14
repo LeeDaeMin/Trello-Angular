@@ -1,11 +1,15 @@
 <div class="p-6 bg-gray-100 relative rounded shadow">
-  <button (click)="close()" type="button" class="absolute top-3 right-3 focus:outline-none p-2">
+  <button
+    (click)="close()"
+    type="button"
+    class="absolute top-3 right-3 focus:outline-none p-2"
+  >
     <fa-icon [icon]="faClose"></fa-icon>
   </button>
   <div class="flex space-x-2 mb-5">
     <fa-icon class="text-gray-800" [icon]="faCheckToSlot"></fa-icon>
     <div class="flex flex-col">
-      <h3 class="text-lg font-semibold text-gray-800">Task 1</h3>
+      <h3 class="text-lg font-semibold text-gray-800">{{ todo.title }}</h3>
       <p class="text-sm text-gray-500">in list ToDo</p>
     </div>
   </div>
@@ -14,7 +18,16 @@
       <fa-icon class="text-gray-800" [icon]="faBars"></fa-icon>
       <div class="flex flex-col">
         <h3 class="text-lg font-semibold text-gray-800">Description</h3>
-        <p class="text-sm text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, hic? Adipisci soluta cum odio, beatae ratione magni nobis, optio similique rerum minus excepturi sed vel, id voluptatibus repellendus numquam quod.</p>
+        <p class="text-sm text-gray-500">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis,
+          hic? Adipisci soluta cum odio, beatae ratione magni nobis, optio
+          similique rerum minus excepturi sed vel, id voluptatibus repellendus
+          numquam quod.
+        </p>
+        <div class="flex space-x-2">
+          <button type="button" (click)="closeWithRta(true)">Si</button>
+          <button type="button" (click)="closeWithRta(false)">No</button>
+        </div>
       </div>
     </div>
     <div class="flex flex-auto space-y-2 flex-col">
