@@ -14,6 +14,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BoardComponent } from './pages/board/board.component';
 import { TodoDialogComponent } from './components/todo-dialog/todo-dialog.component';
+import { ScrollComponent } from './pages/scroll/scroll.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { TodoDialogComponent } from './components/todo-dialog/todo-dialog.compon
     BoardsComponent,
     NavbarComponent,
     BoardComponent,
-    TodoDialogComponent
+    TodoDialogComponent,
+    ScrollComponent
   ],
   imports: [
     BrowserModule,
