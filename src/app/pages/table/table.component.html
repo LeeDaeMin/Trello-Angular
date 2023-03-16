@@ -2,7 +2,7 @@
   <app-navbar></app-navbar>
   <div class="w-full grow bg-white p-6 ">
     <h1 class="text-xl text-gray-700 font-semibold italic mb-5">Table</h1>
-    <table class="w-full text-sm text-left text-gray-500 " cdk-table [dataSource]="products">
+    <table class="w-full text-sm text-left text-gray-500 " cdk-table [dataSource]="dataSource">
       <tr class="text-xs text-gray-700 uppercase bg-gray-50" cdk-header-row *cdkHeaderRowDef="columns"></tr>
       <tr cdk-row class="bg-white border-b" *cdkRowDef="let row; columns: columns"></tr>
       <tr class="text-xl text-gray-700 uppercase bg-gray-200" cdk-footer-row *cdkFooterRowDef="columns"></tr>
@@ -20,7 +20,7 @@
     </ng-container>
 
     <ng-container cdkColumnDef="price">
-      <th cdk-header-cell *cdkHeaderCellDef class="px-6 py-3">price.</th>
+      <th cdk-header-cell *cdkHeaderCellDef class="px-6 py-3">price</th>
       <td cdk-cell class="px-4 py-6" [ngClass]="{ ' bg-red-200 ' : row.price < 100 }" *cdkCellDef="let row">{{ row.price }}</td>
       <th cdk-footer-cell *cdkFooterCellDef class="px-6 py-3">{{total}}</th>
     </ng-container>
@@ -32,6 +32,14 @@
       </td>
       <th cdk-footer-cell *cdkFooterCellDef class="px-6 py-3"></th>
     </ng-container>
+
+    <ng-container cdkColumnDef="actions">
+      <th cdk-header-cell *cdkHeaderCellDef class="px-6 py-3">actions.</th>
+      <td cdk-cell class="px-4 py-6" *cdkCellDef="let row">
+        <app-btn (click)="update(row)">Update</app-btn>
+      </td>
+      <th cdk-footer-cell *cdkFooterCellDef class="px-6 py-3"></th>
+  </ng-container>
     </table>
   </div>
 </div>
